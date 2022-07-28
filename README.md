@@ -1,24 +1,24 @@
 # CORS-Fix-Firebase-Cloud-Storage-Access-
 This json will fix the CORS issue that arises when it accessed in Cross-Origin 
 
-#What Is Firebase Storage?
+# What Is Firebase Storage?
 Firebase storage is file storage area where user can generate and store their files, also it helps the users to keep their information safe yet available in the cloud. Basically, it’s free version gives you 100 MB memory for data storage and a maximum of 50 connections. Where as Amazon S3 bucket also gives us cloud file storage but it doesn’t give us free storage.
 
 #Why do we need to use Firebase storage?
 Firebase also has a CDN(Content delivery networks) and the CND is system of distributed servers network and it delivers the pages and other web content to the user based on their geographic locations. Using this firebase storage works faster when comparing to Amazon S3 bucket.
 
-#CORS Issue
+# CORS Issue
 Sometimes the files we upload on the firebase storage can’t be accessed, it can be simply viewed but we will not have access to modify or access when it is necessary. CORS (Cross-Origin Resource Sharing) is one of the best solution to overcome this issue which helps to access web resources from different domains.
 
-#How to fix firebase storage CORS issue?
+# How to fix firebase storage CORS issue?
 To fix CORS issue you have to do following steps, final result will be problem solved,
 
-#Step 1: Install gsutil tool
+# Step 1: Install gsutil tool
 gsutil:
 gsutil is a Python application, a tool which will enable us to access the Cloud Storage from command-line.
 Installing gsutil as part of the Google Cloud SDK:
 
-#LINUX:
+# LINUX:
 #1. Enter the following at a command prompt:
 
 $ curl https://sdk.cloud.google.com | bash
@@ -35,7 +35,7 @@ Use components update command to update gcloud components:
 $gcloud components update
  
 
-#Step 2: We must authenticate (OAuth 2.0) Google Cloud SDK to access firebase project
+# Step 2: We must authenticate (OAuth 2.0) Google Cloud SDK to access firebase project
 Incase if you already ran `gcloud init` , then you will be asked whether you want to re-initialize the configuration or like to create a new one.
 1. Open a command prompt instance.
 2. Run `gcloud init` in command prompt.
@@ -73,7 +73,7 @@ Once you done with all this configuration, you will be prompted to choose list o
 After fixing this property, gsutil will require a project, such as gsutil mb, so you can use the default project ID and in case you like to override them with the -p flag then you can choose appropriate ID or set the CLOUDSDK_CORE_PROJECT environment variable.
 Ref: https://cloud.google.com/storage/docs/gsutil_install
 
-#Step 3: Configure Cross-Origin Resource Sharing (CORS)
+# Step 3: Configure Cross-Origin Resource Sharing (CORS)
 We can use the gsutil cors command to configure CORS on a bucket:
 gsutil cors set cors.json gs://mlc-agira-271a8.appspot.com
 
